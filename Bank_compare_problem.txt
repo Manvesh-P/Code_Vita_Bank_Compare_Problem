@@ -1,0 +1,27 @@
+# Note: Give one tasb space between rate and years.
+
+principal = int(input())
+tenure = int(input())
+
+list1 = []
+sum1 = 0.0
+
+for i in range(0, 2):
+    N = int(input())
+    for j in range(0, N):
+        #rate = float(input("Enter the rate of intrest for %d slab: "%(j+1)))
+        #years = int(input("Enter the tenure for the %d slab: "%(j+1)))
+        
+        rate,years = map(float,input().split(" "))
+
+        res1 = ((1 + rate)**(years*12))
+        emi = principal * rate/(1-(1/res1))
+        sum1 = sum1 + emi
+        
+    list1.append(sum1)
+    sum1 = 0.0
+    
+if list1[0] > list1[1]:
+    print("Bank B")
+else:
+    print("Bank A")
